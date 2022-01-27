@@ -7,7 +7,22 @@ option go_package = "github.com/lockp111/tdm/x/tdm/types";
 
 // Msg defines the Msg service.
 service Msg {
-    // this line is used by starport scaffolding # proto/tx/rpc
+      rpc Deposit(MsgDeposit) returns (MsgDepositResponse);
+// this line is used by starport scaffolding # proto/tx/rpc
+}
+
+message MsgDeposit {
+  string creator = 1;
+  string chainID = 2;
+  string transferInHash = 3;
+  string tokenAddress = 4;
+  string amount = 5;
+  string from = 6;
+  string to = 7;
+  string gas = 8;
+}
+
+message MsgDepositResponse {
 }
 
 // this line is used by starport scaffolding # proto/tx/message
